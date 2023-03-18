@@ -15,6 +15,7 @@ public class CgiBinClient {
 
     private final RestClient restClient;
 
+    @Getter
     private String accessToken;
     private long tokenExpireTimestamp;
 

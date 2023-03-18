@@ -1,10 +1,7 @@
 package com.codingapi.wechat.sdk;
 
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
-import com.codingapi.wechat.sdk.cgibin.api.AccountManagementApi;
-import com.codingapi.wechat.sdk.cgibin.api.BaseInformationApi;
-import com.codingapi.wechat.sdk.cgibin.api.MessageManagementApi;
-import com.codingapi.wechat.sdk.cgibin.api.UserManagementApi;
+import com.codingapi.wechat.sdk.cgibin.api.*;
 import com.codingapi.wechat.sdk.oauth2.Oauth2Client;
 import com.codingapi.wechat.sdk.oauth2.api.WebAppsApi;
 import com.codingapi.wechat.sdk.properties.WechatProperty;
@@ -23,17 +20,22 @@ public class WechatAutoConfiguration {
 
     @Bean
     public CgiBinClient cgiBinClient(WechatProperty property){
-        return new CgiBinClient(property.getWechatApiBaseUrl(), property.getWechatAppId(), property.getWechatAppSecret());
+        return new CgiBinClient(property.getApiBaseUrl(), property.getAppId(), property.getAppSecret());
     }
 
     @Bean
     public Oauth2Client oauth2Client(WechatProperty property){
-        return new Oauth2Client(property.getWechatApiBaseUrl(), property.getWechatAppId(), property.getWechatAppSecret());
+        return new Oauth2Client(property.getApiBaseUrl(), property.getAppId(), property.getAppSecret());
     }
 
     @Bean
     public MessageManagementApi messageManagementApi(CgiBinClient client){
         return new MessageManagementApi(client);
+    }
+
+    @Bean
+    public MediaApi mediaApi(CgiBinClient client){
+        return new MediaApi(client);
     }
 
     @Bean
