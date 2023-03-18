@@ -9,12 +9,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.codingapi.wechat</groupId>
-    <artifactId>wechat-sdk-parent</artifactId>
+    <artifactId>wechat-sdk</artifactId>
     <version>0.0.1</version>
 
-    <name>wechat-sdk-parent</name>
-    <description>wechat-sdk-parent</description>
+    <name>wechat-sdk</name>
+    <description>wechat-sdk</description>
     <properties>
+        <maven.compile.source>11</maven.compile.source>
+        <maven.compile.target>11</maven.compile.target>
         <java.version>11</java.version>
         <codingapi.springboot-framework.version>1.5.13</codingapi.springboot-framework.version>
     </properties>
@@ -51,15 +53,13 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <source>${maven.compile.source}</source>
+                    <target>${maven.compile.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <compilerArgument>-Xlint:deprecation</compilerArgument>
                 </configuration>
             </plugin>
         </plugins>
