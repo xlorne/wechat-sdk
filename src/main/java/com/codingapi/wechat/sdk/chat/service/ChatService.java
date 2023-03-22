@@ -7,6 +7,7 @@ import com.codingapi.wechat.sdk.chat.pojo.ChatRequest;
 import com.codingapi.wechat.sdk.chat.pojo.ChatResponse;
 import com.codingapi.wechat.sdk.properties.WechatProperty;
 import com.codingapi.wechat.sdk.chat.utils.SHA1;
+import com.codingapi.wechat.sdk.utils.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 
@@ -77,7 +78,7 @@ public class ChatService {
         response.setContent(answer);
         response.setFuncFlag("0");
 
-        String r_nonce = msgCrypt.getRandomStr();
+        String r_nonce = RandomUtils.getRandomStr();
         String r_timestamp =  Long.toString(System.currentTimeMillis());
         return msgCrypt.encryptMsg(response.toXml(), r_timestamp,r_nonce);
     }

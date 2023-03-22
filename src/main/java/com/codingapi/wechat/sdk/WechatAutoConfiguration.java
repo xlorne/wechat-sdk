@@ -4,6 +4,7 @@ import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
 import com.codingapi.wechat.sdk.cgibin.api.*;
 import com.codingapi.wechat.sdk.oauth2.Oauth2Client;
 import com.codingapi.wechat.sdk.oauth2.api.WebAppsApi;
+import com.codingapi.wechat.sdk.pay.WechatV3Config;
 import com.codingapi.wechat.sdk.properties.WechatProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +17,12 @@ public class WechatAutoConfiguration {
     @ConfigurationProperties(prefix = "codingapi.wechat")
     public WechatProperty wechatProperty(){
         return new WechatProperty();
+    }
+
+    @Bean
+    @ConfigurationProperties(prefix = "codingapi.pay")
+    public WechatV3Config wechatV3Config(){
+        return new WechatV3Config();
     }
 
     @Bean

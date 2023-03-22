@@ -9,6 +9,7 @@ import com.codingapi.wechat.sdk.exception.AesException;
 import com.codingapi.wechat.sdk.chat.utils.PKCS7Encoder;
 import com.codingapi.wechat.sdk.chat.utils.SHA1;
 import com.codingapi.wechat.sdk.chat.utils.XMLParse;
+import com.codingapi.wechat.sdk.utils.RandomUtils;
 import org.apache.commons.codec.binary.Base64;
 
 import java.nio.charset.Charset;
@@ -76,17 +77,6 @@ public class WXBizMsgCrypt {
         return sourceNumber;
     }
 
-    // 随机生成16位字符串
-    public String getRandomStr() {
-        String base = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        Random random = new Random();
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < 16; i++) {
-            int number = random.nextInt(base.length());
-            sb.append(base.charAt(number));
-        }
-        return sb.toString();
-    }
 
     /**
      * 对明文进行加密.
@@ -201,7 +191,7 @@ public class WXBizMsgCrypt {
      */
     public String encryptMsg(String replyMsg, String timeStamp, String nonce) throws AesException {
         // 加密
-        String encrypt = encrypt(getRandomStr(), replyMsg);
+        String encrypt = encrypt(RandomUtils.getRandomStr(), replyMsg);
 
         // 生成安全签名
         if (timeStamp.equals("")) {
