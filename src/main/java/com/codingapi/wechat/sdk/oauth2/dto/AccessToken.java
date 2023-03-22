@@ -56,7 +56,7 @@ public class AccessToken {
         public boolean isExpire(){
             long now  = System.currentTimeMillis();
             long time = (now - created)/1000;
-            return time>expiresIn;
+            return (time - 10)>expiresIn;
         }
 
 
