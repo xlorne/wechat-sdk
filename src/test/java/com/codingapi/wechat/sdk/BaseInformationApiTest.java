@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest
@@ -24,7 +23,8 @@ class BaseInformationApiTest {
         AccessToken.Response response = baseInformationApi.token();
         log.info("response:{}",response);
 
-        assertEquals(response.getExpiresIn(),7200);
+        assertTrue(response.isSuccess());
+        assertFalse(response.isExpire());
         assertNotNull(response.getAccessToken());
     }
 }

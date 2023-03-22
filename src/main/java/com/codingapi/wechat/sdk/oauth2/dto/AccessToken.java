@@ -42,9 +42,24 @@ public class AccessToken {
         @JSONField(name = "unionid")
         private String unionId;
 
-        public boolean isSuccess(){
-            return expiresIn==7200 && StringUtils.hasText(accessToken);
+
+        private long created;
+
+        public Response() {
+            this.created = System.currentTimeMillis();
         }
+
+        public boolean isSuccess(){
+            return expiresIn>0 && StringUtils.hasText(accessToken);
+        }
+
+        public boolean isExpire(){
+            long now  = System.currentTimeMillis();
+            long time = (now - created)/1000;
+            return time>expiresIn;
+        }
+
+
     }
 
 }
