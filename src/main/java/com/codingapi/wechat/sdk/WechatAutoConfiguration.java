@@ -65,4 +65,9 @@ public class WechatAutoConfiguration {
         return new BaseInformationApi(client);
     }
 
+    @Bean
+    public TicketApi ticketApi(CgiBinClient client){
+        return new TicketApi(client);
+    }
+
 }

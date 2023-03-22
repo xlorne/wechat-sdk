@@ -17,6 +17,8 @@ public class CgiBinClient {
 
     @Getter
     private String accessToken;
+
+
     private long tokenExpireTimestamp;
 
     @Getter
@@ -40,7 +42,7 @@ public class CgiBinClient {
         AccessToken.Response response =  baseInformationApi.token();
         if(response.isSuccess()){
             this.accessToken = response.getAccessToken();
-            this.tokenExpireTimestamp = now + response.getExpiresIn()* 1000L;
+            this.tokenExpireTimestamp = now + (response.getExpiresIn() - 10)* 1000L;
         }else{
             throw new AccessTokenException(appId);
         }
@@ -67,7 +69,6 @@ public class CgiBinClient {
 
     public String post(String api, JSONObject requestBody){
         String response =  restClient.post(api,requestBody);
-        System.out.println(response);
         handlerError(response);
         return response;
     }
