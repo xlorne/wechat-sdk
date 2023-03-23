@@ -1,7 +1,7 @@
 package com.codingapi.wechat.sdk;
 
 import com.codingapi.wechat.sdk.cgibin.api.MessageManagementApi;
-import com.codingapi.wechat.sdk.cgibin.dto.message.TemplateSend;
+import com.codingapi.wechat.sdk.cgibin.model.message.TemplateSend;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

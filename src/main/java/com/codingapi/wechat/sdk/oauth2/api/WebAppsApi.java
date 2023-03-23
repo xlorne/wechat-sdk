@@ -3,8 +3,8 @@ package com.codingapi.wechat.sdk.oauth2.api;
 import com.alibaba.fastjson.JSON;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import com.codingapi.wechat.sdk.oauth2.Oauth2Client;
-import com.codingapi.wechat.sdk.oauth2.dto.AccessToken;
-import com.codingapi.wechat.sdk.oauth2.dto.UserInfo;
+import com.codingapi.wechat.sdk.oauth2.model.AccessToken;
+import com.codingapi.wechat.sdk.oauth2.model.UserInfo;
 
 public class WebAppsApi {
 

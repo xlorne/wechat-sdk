@@ -1,4 +1,4 @@
-package com.codingapi.wechat.sdk.chat.pojo;
+package com.codingapi.wechat.sdk.chat.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.codingapi.wechat.sdk.oauth2.dto;
+package com.codingapi.wechat.sdk.oauth2.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;

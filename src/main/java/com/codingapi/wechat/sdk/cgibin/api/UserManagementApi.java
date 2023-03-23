@@ -3,8 +3,8 @@ package com.codingapi.wechat.sdk.cgibin.api;
 import com.alibaba.fastjson.JSON;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
-import com.codingapi.wechat.sdk.cgibin.dto.user.UserList;
-import com.codingapi.wechat.sdk.cgibin.dto.user.UsersBasicInformation;
+import com.codingapi.wechat.sdk.cgibin.model.user.UserList;
+import com.codingapi.wechat.sdk.cgibin.model.user.UsersBasicInformation;
 import org.springframework.util.StringUtils;
 
 public class UserManagementApi {

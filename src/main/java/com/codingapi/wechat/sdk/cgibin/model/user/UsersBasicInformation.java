@@ -1,4 +1,4 @@
-package com.codingapi.wechat.sdk.cgibin.dto.user;
+package com.codingapi.wechat.sdk.cgibin.model.user;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.codingapi.springboot.framework.rest.param.RestParam;

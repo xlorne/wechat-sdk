@@ -2,10 +2,10 @@ package com.codingapi.wechat.sdk.cgibin.api;
 
 import com.alibaba.fastjson.JSON;
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
-import com.codingapi.wechat.sdk.cgibin.dto.BaseResponse;
-import com.codingapi.wechat.sdk.cgibin.dto.customservice.MsgList;
-import com.codingapi.wechat.sdk.cgibin.dto.customservice.MsgSend;
-import com.codingapi.wechat.sdk.cgibin.dto.customservice.TypingSend;
+import com.codingapi.wechat.sdk.cgibin.model.BaseResponse;
+import com.codingapi.wechat.sdk.cgibin.model.customservice.MsgList;
+import com.codingapi.wechat.sdk.cgibin.model.customservice.MsgSend;
+import com.codingapi.wechat.sdk.cgibin.model.customservice.TypingSend;
 
 public class CustomServiceApi {
 

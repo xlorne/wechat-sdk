@@ -3,7 +3,7 @@ package com.codingapi.wechat.sdk.cgibin.api;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
-import com.codingapi.wechat.sdk.cgibin.dto.account.QrcodeCreate;
+import com.codingapi.wechat.sdk.cgibin.model.account.QrcodeCreate;
 
 public class AccountManagementApi {
 

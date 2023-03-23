@@ -1,4 +1,4 @@
-package com.codingapi.wechat.sdk.cgibin.dto.ticket;
+package com.codingapi.wechat.sdk.cgibin.model.ticket;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;

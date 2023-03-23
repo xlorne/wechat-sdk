@@ -1,4 +1,4 @@
-package com.codingapi.wechat.sdk.cgibin.dto;
+package com.codingapi.wechat.sdk.cgibin.model;
 
 import lombok.Getter;
 import lombok.Setter;

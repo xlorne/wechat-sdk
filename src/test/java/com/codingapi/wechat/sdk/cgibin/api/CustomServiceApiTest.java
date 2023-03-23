@@ -1,9 +1,9 @@
 package com.codingapi.wechat.sdk.cgibin.api;
 
-import com.codingapi.wechat.sdk.cgibin.dto.BaseResponse;
-import com.codingapi.wechat.sdk.cgibin.dto.customservice.MsgList;
-import com.codingapi.wechat.sdk.cgibin.dto.customservice.MsgSend;
-import com.codingapi.wechat.sdk.cgibin.dto.customservice.TypingSend;
+import com.codingapi.wechat.sdk.cgibin.model.BaseResponse;
+import com.codingapi.wechat.sdk.cgibin.model.customservice.MsgList;
+import com.codingapi.wechat.sdk.cgibin.model.customservice.MsgSend;
+import com.codingapi.wechat.sdk.cgibin.model.customservice.TypingSend;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

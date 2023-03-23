@@ -3,7 +3,7 @@ package com.codingapi.wechat.sdk.cgibin.api;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
-import com.codingapi.wechat.sdk.cgibin.dto.message.TemplateSend;
+import com.codingapi.wechat.sdk.cgibin.model.message.TemplateSend;
 
 public class MessageManagementApi {
 

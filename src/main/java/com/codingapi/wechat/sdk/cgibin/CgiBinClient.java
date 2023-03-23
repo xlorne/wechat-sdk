@@ -5,9 +5,9 @@ import com.alibaba.fastjson2.JSON;
 import com.codingapi.springboot.framework.rest.RestClient;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import com.codingapi.wechat.sdk.cgibin.api.BaseInformationApi;
-import com.codingapi.wechat.sdk.cgibin.dto.BaseResponse;
+import com.codingapi.wechat.sdk.cgibin.model.BaseResponse;
 import com.codingapi.wechat.sdk.cgibin.exception.ResponseErrorException;
-import com.codingapi.wechat.sdk.oauth2.dto.AccessToken;
+import com.codingapi.wechat.sdk.oauth2.model.AccessToken;
 import com.codingapi.wechat.sdk.oauth2.exception.AccessTokenException;
 import lombok.Getter;
 

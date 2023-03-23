@@ -3,8 +3,8 @@ package com.codingapi.wechat.sdk.cgibin.api;
 import com.alibaba.fastjson.JSON;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
-import com.codingapi.wechat.sdk.cgibin.dto.ticket.Ticket;
-import com.codingapi.wechat.sdk.cgibin.dto.user.UserList;
+import com.codingapi.wechat.sdk.cgibin.model.ticket.Ticket;
+import com.codingapi.wechat.sdk.cgibin.model.user.UserList;
 import org.springframework.util.StringUtils;
 
 import java.util.Map;

@@ -2,7 +2,7 @@ package com.codingapi.wechat.sdk.cgibin.api;
 
 import com.alibaba.fastjson2.JSON;
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
-import com.codingapi.wechat.sdk.oauth2.dto.AccessToken;
+import com.codingapi.wechat.sdk.oauth2.model.AccessToken;
 
 public class BaseInformationApi {
 

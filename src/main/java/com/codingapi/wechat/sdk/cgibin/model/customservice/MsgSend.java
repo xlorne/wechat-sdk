@@ -1,4 +1,4 @@
-package com.codingapi.wechat.sdk.cgibin.dto.customservice;
+package com.codingapi.wechat.sdk.cgibin.model.customservice;
 
 import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;

@@ -1,13 +1,12 @@
 package com.codingapi.wechat.sdk;
 
 import com.codingapi.wechat.sdk.oauth2.api.WebAppsApi;
-import com.codingapi.wechat.sdk.oauth2.dto.AccessToken;
-import com.codingapi.wechat.sdk.oauth2.dto.UserInfo;
+import com.codingapi.wechat.sdk.oauth2.model.AccessToken;
+import com.codingapi.wechat.sdk.oauth2.model.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;

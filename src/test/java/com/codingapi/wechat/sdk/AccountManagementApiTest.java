@@ -1,7 +1,7 @@
 package com.codingapi.wechat.sdk;
 
 import com.codingapi.wechat.sdk.cgibin.api.AccountManagementApi;
-import com.codingapi.wechat.sdk.cgibin.dto.account.QrcodeCreate;
+import com.codingapi.wechat.sdk.cgibin.model.account.QrcodeCreate;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

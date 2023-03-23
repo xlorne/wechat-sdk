@@ -1,6 +1,6 @@
 package com.codingapi.wechat.sdk.cgibin.exception;
 
-import com.codingapi.wechat.sdk.cgibin.dto.BaseResponse;
+import com.codingapi.wechat.sdk.cgibin.model.BaseResponse;
 import lombok.Getter;
 
 public class ResponseErrorException extends RuntimeException {

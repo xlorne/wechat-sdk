@@ -1,7 +1,7 @@
 package com.codingapi.wechat.sdk;
 
 import com.codingapi.wechat.sdk.cgibin.api.BaseInformationApi;
-import com.codingapi.wechat.sdk.oauth2.dto.AccessToken;
+import com.codingapi.wechat.sdk.oauth2.model.AccessToken;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

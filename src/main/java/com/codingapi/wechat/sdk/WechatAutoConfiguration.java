@@ -2,9 +2,12 @@ package com.codingapi.wechat.sdk;
 
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
 import com.codingapi.wechat.sdk.cgibin.api.*;
+import com.codingapi.wechat.sdk.jsapi.api.JsApi;
 import com.codingapi.wechat.sdk.oauth2.Oauth2Client;
 import com.codingapi.wechat.sdk.oauth2.api.WebAppsApi;
 import com.codingapi.wechat.sdk.pay.WechatV3Config;
+import com.codingapi.wechat.sdk.pay.api.JsApiPayApi;
+import com.codingapi.wechat.sdk.pay.notify.NotifyService;
 import com.codingapi.wechat.sdk.properties.WechatProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -73,6 +76,21 @@ public class WechatAutoConfiguration {
     @Bean
     public CustomServiceApi customServiceApi(CgiBinClient client){
         return new CustomServiceApi(client);
+    }
+
+    @Bean
+    public JsApi jsApi(TicketApi ticketApi,WechatProperty wechatProperty){
+        return new JsApi(ticketApi,wechatProperty);
+    }
+
+    @Bean
+    public JsApiPayApi jsApiPayApi(WechatV3Config wechatV3Config){
+        return new JsApiPayApi(wechatV3Config);
+    }
+
+    @Bean
+    public NotifyService notifyService(WechatV3Config wechatV3Config){
+        return new NotifyService(wechatV3Config);
     }
 
 }

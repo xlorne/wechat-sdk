@@ -1,7 +1,7 @@
 package com.codingapi.wechat.sdk;
 
 import com.codingapi.wechat.sdk.cgibin.api.TicketApi;
-import com.codingapi.wechat.sdk.cgibin.dto.ticket.Ticket;
+import com.codingapi.wechat.sdk.cgibin.model.ticket.Ticket;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
