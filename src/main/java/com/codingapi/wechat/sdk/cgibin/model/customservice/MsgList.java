@@ -41,11 +41,11 @@ public class MsgList {
         private String worker;
 
         public boolean isSendMsg(){
-            return opercode == 2002;
+            return opercode == 2003;
         }
 
         public boolean isReplyMsg(){
-            return opercode == 2003;
+            return opercode == 2002;
         }
     }
 }
