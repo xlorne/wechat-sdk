@@ -4,39 +4,25 @@ import com.codingapi.springboot.framework.rest.param.RestParam;
 import lombok.Getter;
 import lombok.Setter;
 
+@Setter
+@Getter
+public class MsgSend implements RestParam {
 
-public class MsgSend  {
+    private String touser;
+    private String msgtype;
 
-    @Setter
-    @Getter
-    public static class Request implements RestParam{
-        private String touser;
-        private String msgtype;
+    private Text text;
 
-        private Text text;
-
-        public Request(String touser,String content) {
-            this.msgtype = "text";
-            this.touser = touser;
-            this.text = new Text();
-            this.text.setContent(content);
-        }
-
-        @Setter
-        @Getter
-        private static class Text{
-            private String content;
-        }
+    public MsgSend(String touser,String content) {
+        this.msgtype = "text";
+        this.touser = touser;
+        this.text = new Text();
+        this.text.setContent(content);
     }
 
     @Setter
     @Getter
-    public static class Response{
-        private int errcode;
-        private String errmsg;
-
-        public boolean isSuccess(){
-            return errcode==0 && "ok".equalsIgnoreCase(errmsg);
-        }
+    private static class Text{
+        private String content;
     }
 }

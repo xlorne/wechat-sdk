@@ -5,7 +5,7 @@ import com.alibaba.fastjson2.JSON;
 import com.codingapi.springboot.framework.rest.RestClient;
 import com.codingapi.springboot.framework.rest.param.RestParamBuilder;
 import com.codingapi.wechat.sdk.cgibin.api.BaseInformationApi;
-import com.codingapi.wechat.sdk.cgibin.dto.ErrorResponse;
+import com.codingapi.wechat.sdk.cgibin.dto.BaseResponse;
 import com.codingapi.wechat.sdk.cgibin.exception.ResponseErrorException;
 import com.codingapi.wechat.sdk.oauth2.dto.AccessToken;
 import com.codingapi.wechat.sdk.oauth2.exception.AccessTokenException;
@@ -89,7 +89,7 @@ public class CgiBinClient {
     private void handlerError(String response){
         if(response.contains("\"errcode\"")){
             System.out.println(response);
-            ErrorResponse error = JSON.parseObject(response, ErrorResponse.class);
+            BaseResponse error = JSON.parseObject(response, BaseResponse.class);
             if(error.getErrcode()!=0){
                 throw new ResponseErrorException(error);
             }

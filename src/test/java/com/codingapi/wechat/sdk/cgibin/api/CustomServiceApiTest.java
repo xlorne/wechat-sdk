@@ -1,7 +1,9 @@
 package com.codingapi.wechat.sdk.cgibin.api;
 
+import com.codingapi.wechat.sdk.cgibin.dto.BaseResponse;
 import com.codingapi.wechat.sdk.cgibin.dto.customservice.MsgList;
 import com.codingapi.wechat.sdk.cgibin.dto.customservice.MsgSend;
+import com.codingapi.wechat.sdk.cgibin.dto.customservice.TypingSend;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +41,22 @@ class CustomServiceApiTest {
 
     @Test
     void send() {
-        MsgSend.Request request = new MsgSend.Request("oT3FC6WvexVrYLj66nyFvRsLpJw8", "你好");
-        MsgSend.Response response =customServiceApi.sendMsg(request);
+        MsgSend request = new MsgSend("oT3FC6WvexVrYLj66nyFvRsLpJw8", "你好");
+        BaseResponse response =customServiceApi.sendMsg(request);
+        assertTrue(response.isSuccess());
+    }
+
+    @Test
+    void typing() {
+        TypingSend request =TypingSend.typing("oT3FC6WvexVrYLj66nyFvRsLpJw8");
+        BaseResponse response =customServiceApi.typing(request);
+        assertTrue(response.isSuccess());
+    }
+
+    @Test
+    void cancelTyping() {
+        TypingSend request =TypingSend.cancelTyping("oT3FC6WvexVrYLj66nyFvRsLpJw8");
+        BaseResponse response =customServiceApi.typing(request);
         assertTrue(response.isSuccess());
     }
 }
