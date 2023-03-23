@@ -51,9 +51,9 @@ public class WechatV3Config {
     private String notifyUrl;
 
 
-    private Config config;
+    private RSAAutoCertificateConfig config;
 
-    public Config getWechatPayConfig(){
+    public RSAAutoCertificateConfig getWechatPayConfig(){
         if(config==null) {
             this.config = new RSAAutoCertificateConfig.Builder()
                     .merchantId(mchId)
