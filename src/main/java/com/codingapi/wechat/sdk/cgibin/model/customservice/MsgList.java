@@ -34,9 +34,18 @@ public class MsgList {
     @ToString
     public static class Record{
         private String openid;
+        //操作码，2002（客服发送信息），2003（客服接收消息）
         private int opercode;
         private String text;
         private long time;
         private String worker;
+
+        public boolean isSendMsg(){
+            return opercode == 2002;
+        }
+
+        public boolean isReplyMsg(){
+            return opercode == 2003;
+        }
     }
 }

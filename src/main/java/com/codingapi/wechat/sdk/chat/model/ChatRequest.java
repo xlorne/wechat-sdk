@@ -1,6 +1,7 @@
 package com.codingapi.wechat.sdk.chat.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.ToString;
 import org.dom4j.Document;
@@ -37,6 +38,22 @@ public class ChatRequest {
         }
     }
 
+    public ChatRequest(String formUserName, String createTime, String toUserName, String msgType, String content, String msgId, String mediaId) {
+        this.formUserName = formUserName;
+        this.createTime = createTime;
+        this.toUserName = toUserName;
+        this.msgType = msgType;
+        this.content = content;
+        this.msgId = msgId;
+        this.mediaId = mediaId;
+    }
+
+
+    public ChatRequest(String formUserName, String msgType, String content) {
+        this.formUserName = formUserName;
+        this.msgType = msgType;
+        this.content = content;
+    }
 
     public boolean isText(){
         return msgType.equals("text");
