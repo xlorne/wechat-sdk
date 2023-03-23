@@ -28,4 +28,16 @@ public class ChatResponse {
                 "</xml>";
     }
 
+
+    public static ChatResponse answer(ChatRequest chatRequest,String answer){
+        ChatResponse response = new ChatResponse();
+        response.setToUserName(chatRequest.getFormUserName());
+        response.setFormUserName(chatRequest.getToUserName());
+        response.setCreateTime(chatRequest.getCreateTime());
+        response.setMsgType("text");
+        response.setContent(answer);
+        response.setFuncFlag("0");
+        return response;
+    }
+
 }

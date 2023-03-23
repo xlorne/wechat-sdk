@@ -1,12 +1,12 @@
 package com.codingapi.wechat.sdk.chat.service;
 
-import com.codingapi.wechat.sdk.exception.AesException;
-import com.codingapi.wechat.sdk.chat.gateway.ChatGateway;
 import com.codingapi.wechat.sdk.chat.WXBizMsgCrypt;
+import com.codingapi.wechat.sdk.chat.gateway.ChatGateway;
 import com.codingapi.wechat.sdk.chat.model.ChatRequest;
 import com.codingapi.wechat.sdk.chat.model.ChatResponse;
-import com.codingapi.wechat.sdk.properties.WechatProperty;
 import com.codingapi.wechat.sdk.chat.utils.SHA1;
+import com.codingapi.wechat.sdk.exception.AesException;
+import com.codingapi.wechat.sdk.properties.WechatProperty;
 import com.codingapi.wechat.sdk.utils.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
@@ -62,25 +62,17 @@ public class ChatService {
         String data = msgCrypt.decryptMsg(msg_signature,timestamp,nonce,body);
         ChatRequest chatRequest = new ChatRequest(data);
         log.info("request:{}",chatRequest);
-        String answer = chatGateway.ask(openid,chatRequest);
-        String xml = response(chatRequest,answer);
+        ChatResponse chatResponse = chatGateway.ask(openid,chatRequest);
+        String xml = encodeResponse(chatResponse);
         log.info("response:{}",xml);
         return xml;
     }
 
 
-    private String response(ChatRequest chatRequest,String answer) throws AesException {
-        ChatResponse response = new ChatResponse();
-        response.setToUserName(chatRequest.getFormUserName());
-        response.setFormUserName(chatRequest.getToUserName());
-        response.setCreateTime(chatRequest.getCreateTime());
-        response.setMsgType("text");
-        response.setContent(answer);
-        response.setFuncFlag("0");
-
+    private String encodeResponse(ChatResponse chatResponse) throws AesException {
         String r_nonce = RandomUtils.getRandomStr();
         String r_timestamp =  Long.toString(System.currentTimeMillis());
-        return msgCrypt.encryptMsg(response.toXml(), r_timestamp,r_nonce);
+        return msgCrypt.encryptMsg(chatResponse.toXml(), r_timestamp,r_nonce);
     }
 
 }
