@@ -88,6 +88,7 @@ public class CgiBinClient {
 
     private void handlerError(String response){
         if(response.contains("\"errcode\"")){
+            System.out.println(response);
             ErrorResponse error = JSON.parseObject(response, ErrorResponse.class);
             if(error.getErrcode()!=0){
                 throw new ResponseErrorException(error);
