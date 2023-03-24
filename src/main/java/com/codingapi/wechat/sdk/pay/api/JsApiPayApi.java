@@ -24,7 +24,7 @@ public class JsApiPayApi {
      * @param desc 商品描述
      * @return 支付发起调用参数
      */
-    public JsApiPayResponse createJsApiPay(String openId,int amount,String desc){
+    public JsApiPayResponse createJsApiPay(String openId,int amount,String desc,String attach){
         JsapiService jsapiService = new JsapiService.Builder().config(wechatV3Config.getWechatPayConfig()).build();
         PrepayRequest prepayRequest = new PrepayRequest();
         Amount payAmount = new Amount();
@@ -34,6 +34,7 @@ public class JsApiPayApi {
         prepayRequest.setAppid(wechatV3Config.getAppid());
         Payer payer = new Payer();
         payer.setOpenid(openId);
+        prepayRequest.setAttach(attach);
         prepayRequest.setPayer(payer);
         prepayRequest.setNotifyUrl(wechatV3Config.getNotifyUrl());
         prepayRequest.setOutTradeNo(RandomUtils.getRandomStr());
