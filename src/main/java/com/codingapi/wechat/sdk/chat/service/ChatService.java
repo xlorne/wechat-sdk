@@ -30,6 +30,7 @@ public class ChatService {
 
     /**
      * 签名验证
+     *
      * @param request request请求对象
      * @return 签名结果
      * @throws Exception 异常信息
@@ -40,7 +41,7 @@ public class ChatService {
         String nonce = request.getParameter("nonce");
         String echostr = request.getParameter("echostr");
         String msgSignature = SHA1.getSHA1(wechatProperty.getToken(), timestamp, nonce);
-        if(signature.equals(msgSignature)){
+        if (signature.equals(msgSignature)) {
             return echostr;
         }
         return "error";
@@ -49,6 +50,7 @@ public class ChatService {
 
     /**
      * 响应回答
+     *
      * @param request request请求对象
      * @return 响应结果
      * @throws Exception 异常信息
@@ -59,20 +61,40 @@ public class ChatService {
         String timestamp = request.getParameter("timestamp");
         String openid = request.getParameter("openid");
         String nonce = request.getParameter("nonce");
-        String data = msgCrypt.decryptMsg(msg_signature,timestamp,nonce,body);
+        String data = msgCrypt.decryptMsg(msg_signature, timestamp, nonce, body);
         ChatRequest chatRequest = new ChatRequest(data);
-        log.info("request:{}",chatRequest);
-        ChatResponse chatResponse = chatGateway.ask(openid,chatRequest);
+        log.info("request:{}", chatRequest);
+        ChatResponse chatResponse = chatGateway.ask(openid, chatRequest);
         String xml = encodeResponse(chatResponse);
-        log.info("response:{}",xml);
+        log.info("response:{}", xml);
         return xml;
+    }
+
+
+    /**
+     * 接受消息
+     *
+     * @param request request请求对象
+     * @return 响应结果
+     * @throws Exception 异常信息
+     */
+    public void handler(HttpServletRequest request) throws Exception {
+        String body = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
+        String msg_signature = request.getParameter("msg_signature");
+        String timestamp = request.getParameter("timestamp");
+        String openid = request.getParameter("openid");
+        String nonce = request.getParameter("nonce");
+        String data = msgCrypt.decryptMsg(msg_signature, timestamp, nonce, body);
+        ChatRequest chatRequest = new ChatRequest(data);
+        log.info("request:{}", chatRequest);
+        chatGateway.handler(openid, chatRequest);
     }
 
 
     private String encodeResponse(ChatResponse chatResponse) throws AesException {
         String r_nonce = RandomUtils.getRandomStr();
-        String r_timestamp =  Long.toString(System.currentTimeMillis());
-        return msgCrypt.encryptMsg(chatResponse.toXml(), r_timestamp,r_nonce);
+        String r_timestamp = Long.toString(System.currentTimeMillis());
+        return msgCrypt.encryptMsg(chatResponse.toXml(), r_timestamp, r_nonce);
     }
 
 }
