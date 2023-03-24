@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.beans.Transient;
+import java.nio.charset.StandardCharsets;
+
 /**
  * 第四步：拉取用户信息(需 scope 为 snsapi_userinfo)
  * <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html#3"></a>
@@ -63,5 +66,12 @@ public class UserInfo {
      */
     @JSONField(name = "unionid")
     private String unionId;
+
+
+    @Transient
+    public String decodeNickName(){
+        byte[] data = nickname.getBytes(StandardCharsets.ISO_8859_1);
+        return new String(data,StandardCharsets.UTF_8);
+    }
 
 }
