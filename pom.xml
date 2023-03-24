@@ -18,7 +18,7 @@
         <maven.compile.source>11</maven.compile.source>
         <maven.compile.target>11</maven.compile.target>
         <java.version>11</java.version>
-        <codingapi.springboot-framework.version>1.5.14</codingapi.springboot-framework.version>
+        <codingapi.springboot-framework.version>1.5.15</codingapi.springboot-framework.version>
     </properties>
     <dependencies>
 
