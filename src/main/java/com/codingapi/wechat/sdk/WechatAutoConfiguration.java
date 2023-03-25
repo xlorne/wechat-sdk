@@ -93,4 +93,9 @@ public class WechatAutoConfiguration {
         return new NotifyService(wechatV3Config);
     }
 
+
+    @Bean
+    public WxaApi wxaApi(CgiBinClient client){
+        return new WxaApi(client);
+    }
 }

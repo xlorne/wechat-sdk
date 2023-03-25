@@ -41,7 +41,7 @@ class CustomServiceApiTest {
 
     @Test
     void send() {
-        MsgSend request = new MsgSend("oT3FC6WvexVrYLj66nyFvRsLpJw8", "你好");
+        MsgSend request = new MsgSend("oT3FC6WvexVrYLj66nyFvRsLpJw8", "请点击<a href=\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc62bed375381b5be&redirect_uri=http%3A%2F%2Fchat-api.codingapi.com%2F%23%2Fpay&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect\">充值</a>，然后选择套餐充值");
         BaseResponse response =customServiceApi.sendMsg(request);
         assertTrue(response.isSuccess());
     }
