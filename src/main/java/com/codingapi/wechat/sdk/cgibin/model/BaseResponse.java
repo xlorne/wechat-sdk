@@ -11,9 +11,13 @@ public class BaseResponse {
 
     private String errmsg;
 
-
     public boolean isSuccess(){
         return errcode==0 && "ok".equalsIgnoreCase(errmsg);
     }
+
+    public boolean isFail(){
+        return !isSuccess();
+    }
+
 
 }
