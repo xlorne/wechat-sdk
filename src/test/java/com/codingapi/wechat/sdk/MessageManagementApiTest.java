@@ -20,10 +20,11 @@ class MessageManagementApiTest {
 
     @Test
     void send() {
+        //https://www.emojidaquan.com/
         TemplateSend.Request request = new TemplateSend.Request();
         request.setToUser("oK1F_6R8AwFqHqQCPNshVUdh2k2E");
         request.setTemplateId("Ta493p2PVcHzgRaFB0iiBmdC6R5ksLQe_L60xQNDxts");
-        request.addData("first","我是测试标题");
+        request.addData("first","我是测试标题\uD83D\uDE00");
         request.addData("keyword1","我是关键字1");
         request.addData("keyword2","我是关键字2");
         request.addData("remark","我是备注信息");
