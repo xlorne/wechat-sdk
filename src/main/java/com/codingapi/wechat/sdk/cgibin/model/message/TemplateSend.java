@@ -1,10 +1,7 @@
 package com.codingapi.wechat.sdk.cgibin.model.message;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -99,6 +96,7 @@ public class TemplateSend {
 
     @Setter
     @Getter
+    @ToString
     public static class Response{
         @JSONField(name = "errcode")
         private int errCode;
