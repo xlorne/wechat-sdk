@@ -12,17 +12,39 @@ public class MsgSend implements RestParam {
     private String msgtype;
 
     private Text text;
+    private Image image;
 
-    public MsgSend(String touser,String content) {
-        this.msgtype = "text";
-        this.touser = touser;
-        this.text = new Text();
-        this.text.setContent(content);
+
+    public static MsgSend createText(String touser,String content){
+        MsgSend send = new MsgSend();
+        send.setTouser(touser);
+        send.setMsgtype("text");
+        Text text = new Text();
+        text.setContent(content);
+        send.setText(text);
+        return send;
     }
+
+    public static MsgSend createImage(String touser,String mediaId){
+        MsgSend send = new MsgSend();
+        send.setTouser(touser);
+        send.setMsgtype("image");
+        Image image = new Image();
+        image.setMedia_id(mediaId);
+        send.setImage(image);
+        return send;
+    }
+
 
     @Setter
     @Getter
     private static class Text{
         private String content;
+    }
+
+    @Setter
+    @Getter
+    private static class Image{
+        private String media_id;
     }
 }

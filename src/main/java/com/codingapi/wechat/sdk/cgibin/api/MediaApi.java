@@ -1,8 +1,11 @@
 package com.codingapi.wechat.sdk.cgibin.api;
 
+import com.alibaba.fastjson.JSON;
 import com.codingapi.springboot.framework.rest.RestTemplateContext;
 import com.codingapi.wechat.sdk.cgibin.CgiBinClient;
+import com.codingapi.wechat.sdk.cgibin.model.media.Media;
 import lombok.SneakyThrows;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.*;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.LinkedMultiValueMap;
@@ -20,6 +23,31 @@ public class MediaApi {
     public MediaApi(CgiBinClient cgiBinClient) {
         this.accessToken = cgiBinClient.getAccessToken();
     }
+
+
+    /**
+     * 上传临时素材
+     * @param type 临时素材类型
+     * @param data 临时素材数据
+     * @return
+     */
+    public Media upload(String type, String filename, byte[] data){
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        LinkedMultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
+        params.add("media", new ByteArrayResource(data){
+            @Override
+            public String getFilename() {
+                return filename;
+            }
+        });
+        HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, headers);
+        String url = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token="+accessToken+"&type="+type;
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
+        String json = response.getBody();
+        return JSON.parseObject(json, Media.class);
+    }
+
 
     public String addVoice(String voice_id,String data){
         HttpHeaders headers = new HttpHeaders();
