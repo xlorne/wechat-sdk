@@ -38,13 +38,13 @@ public class MsgSend implements RestParam {
 
     @Setter
     @Getter
-    private static class Text{
+    public static class Text{
         private String content;
     }
 
     @Setter
     @Getter
-    private static class Image{
+    public static class Image{
         private String media_id;
     }
 }
