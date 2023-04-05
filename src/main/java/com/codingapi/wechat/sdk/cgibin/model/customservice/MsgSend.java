@@ -15,7 +15,7 @@ public class MsgSend implements RestParam {
     private Image image;
 
 
-    public boolean isText(){
+    public boolean hasText(){
         return "text".equals(msgtype);
     }
 

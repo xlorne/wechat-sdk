@@ -94,7 +94,7 @@ class CustomServiceApiTest {
 
     @Test
     void sendImage() {
-        MsgSend request = MsgSend.createImage("o_KcF6S8b94P1MuEcCXMqrgEpbac", "HWIEUmIHMS0sL-pmbsVnJvvzlH2iGGoN8SEBcWJPpqNExRk6-v02YWs6nz6644Tc");
+        MsgSend request = MsgSend.createImage("o_KcF6S8b94P1MuEcCXMqrgEpbac", "vbBBzLD5FhKykRK2XvyzO1rv4-oC4L2zNH3ZS2UdSg10wcIdieHRN5Yy-_48GdwE");
         BaseResponse response = customServiceApi.sendMsg(request);
         assertTrue(response.isSuccess());
     }
