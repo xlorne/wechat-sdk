@@ -27,7 +27,7 @@ public class CustomServiceApi {
     }
 
     public BaseResponse sendMsg(MsgSend request,boolean splitSend){
-        if(splitSend){
+        if(request.isText() && splitSend){
             String content = request.getText().getContent();
             if(content.length() <= MAX_MSG_SIZE){
                 return _sendMsg(request);

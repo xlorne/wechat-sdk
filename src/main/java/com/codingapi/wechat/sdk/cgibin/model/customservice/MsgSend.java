@@ -15,6 +15,10 @@ public class MsgSend implements RestParam {
     private Image image;
 
 
+    public boolean isText(){
+        return "text".equals(msgtype);
+    }
+
     public static MsgSend createText(String touser,String content){
         MsgSend send = new MsgSend();
         send.setTouser(touser);
