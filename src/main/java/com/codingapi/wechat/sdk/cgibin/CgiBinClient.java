@@ -15,7 +15,6 @@ public class CgiBinClient {
 
     private final RestClient restClient;
 
-    @Getter
     private String accessToken;
 
 
@@ -98,6 +97,14 @@ public class CgiBinClient {
     public String authGet(String api,RestParamBuilder builder){
         api = buildAuthApi(api);
         return get(api,builder);
+    }
+
+    public String getAccessToken() {
+        long now = System.currentTimeMillis();
+        if(now>=tokenExpireTimestamp){
+            this.initToken();
+        }
+        return accessToken;
     }
 
 
