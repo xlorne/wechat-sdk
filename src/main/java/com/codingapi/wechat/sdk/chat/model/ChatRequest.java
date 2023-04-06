@@ -202,7 +202,6 @@ public class ChatRequest {
         if(root.element("Precision")!=null) {
             this.precision = root.element("Precision").getTextTrim();
         }
-
     }
 
 
@@ -217,4 +216,17 @@ public class ChatRequest {
     public boolean isVoice(){
         return msgType.equals("voice");
     }
+
+    public boolean isLocation(){
+        return msgType.equals("location");
+    }
+
+    public boolean isImage(){
+        return msgType.equals("image");
+    }
+
+    public boolean isVideo(){
+        return msgType.equals("video");
+    }
+
 }
