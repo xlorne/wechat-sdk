@@ -28,6 +28,7 @@ class MessageManagementApiTest {
         request.addData("keyword1","我是关键字1");
         request.addData("keyword2","我是关键字2");
         request.addData("remark","我是备注信息");
+        request.setUrl("https://www.baidu.com");
         TemplateSend.Response response =  messageManagementApi.send(request);
         assertNotNull(response);
         log.info("response:{}",response);
