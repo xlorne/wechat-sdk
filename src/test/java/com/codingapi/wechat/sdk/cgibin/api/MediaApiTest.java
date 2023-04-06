@@ -25,8 +25,15 @@ class MediaApiTest {
     void upload() throws IOException {
         String file = "C:\\developer\\test\\test.jpg";
         byte[] data = Files.readAllBytes(new File(file).toPath());
-        Media media = mediaApi.upload("image","xxxx.png",data);
+        Media media = mediaApi.upload("image", "xxxx.png", data);
         assertNotNull(media);
-        log.info("mediaId:{}",media.getMediaId());
+        log.info("mediaId:{}", media.getMediaId());
+    }
+
+    @Test
+    void download(){
+        String mediaId = "OjPa-Zatk9iTllMkLw3LEK0BPraolbLVRb-gbPmC98l4rH3KL3gwmbLlvHvSSIqk";
+        byte[] data = mediaApi.download(mediaId);
+        log.info("data:{}", data.length);
     }
 }

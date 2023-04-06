@@ -48,6 +48,24 @@ public class MediaApi {
     }
 
 
+    /**
+     * 下载临时素材
+     *
+     * @param mediaId 临时素材id
+     * @return
+     */
+    public byte[] download(String mediaId) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        MultiValueMap<String, String> request = new LinkedMultiValueMap<>();
+        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(request, headers);
+        String url = "https://api.weixin.qq.com/cgi-bin/media/get?access_token=" + client.getAccessToken() + "&media_id=" + mediaId;
+        ResponseEntity<byte[]> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, byte[].class);
+        return response.getBody();
+    }
+
+
+
     public String addVoice(String voice_id, String data) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
