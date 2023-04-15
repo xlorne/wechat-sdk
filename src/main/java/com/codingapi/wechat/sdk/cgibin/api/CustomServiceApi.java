@@ -11,7 +11,7 @@ public class CustomServiceApi {
 
     private final CgiBinClient cgiBinClient;
 
-    private final static int MAX_MSG_SIZE = 700;
+    private final static int MAX_MSG_SIZE = 600;
 
     public CustomServiceApi(CgiBinClient cgiBinClient) {
         this.cgiBinClient = cgiBinClient;
